@@ -20,10 +20,9 @@ public class Connect {
     /**
      * @param args the command line arguments
      */
-
- public static boolean connect() {
+    public static boolean connect() {
         boolean cConn = false;
-        
+
         Connection conn = null;
         try {
             // establecemos parámetros de la base de datos
@@ -34,28 +33,26 @@ public class Connect {
             JOptionPane.showMessageDialog(null, "Se ha establecido la conexión de SQLite");
             cConn = true;
         } catch (SQLException e) {
-            
 
             JOptionPane.showMessageDialog(null, "Imposible establecer conexión");
-           cConn = false;
+            cConn = false;
         } finally {
             try {
                 if (conn != null) {
                     conn.close();
-                   
+
                 }
             } catch (SQLException ex) {
-               
-               JOptionPane.showMessageDialog(null, "Error en la conexión");
-               cConn = false;
-               
+
+                JOptionPane.showMessageDialog(null, "Error en la conexión");
+                cConn = false;
+
             }
         }
         return cConn;
     }
- 
-    //metodo para crear la base de datos
 
+    //metodo para crear la base de datos
     public static boolean createNewDatabase(String fileName) {
         boolean db = false;
         //establecemos la url dónde queramos crear dicha base de datos
@@ -86,7 +83,5 @@ public class Connect {
         connect();
         createNewDatabase("cod.db");
     }
-    
+
 }
-
-
